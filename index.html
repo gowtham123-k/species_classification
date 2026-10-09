@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penguin Species Classification</title>
+  <meta name="description" content="A simple student project to classify penguin species based on physical measurements like bill dimensions, flipper length, and body mass.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-logo" aria-hidden="true">🐧</div>
+    <h1>Penguin Species Classification</h1>
+    <p class="subtitle">Enter the penguin's physical measurements to identify its species.</p>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-container">
+    <div class="dashboard-grid">
+      
+      <!-- Input Card Section -->
+      <section class="card input-card">
+        <h2 class="card-title">Measurements</h2>
+        
+        <form id="predictionForm" novalidate>
+          <!-- Validation Error Container -->
+          <div id="errorContainer" class="error-container hidden" role="alert">
+            <span class="error-icon">⚠️</span>
+            <span id="errorMessage">Please fill in all fields with valid measurements.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="island">Island</label>
+            <select id="island" name="island" required>
+              <option value="" disabled selected>Select Island...</option>
+              <option value="Biscoe">Biscoe</option>
+              <option value="Dream">Dream</option>
+              <option value="Torgersen">Torgersen</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="billLength">Bill Length (mm)</label>
+            <input type="text" id="billLength" name="billLength" placeholder="e.g. 39.1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="billDepth">Bill Depth (mm)</label>
+            <input type="text" id="billDepth" name="billDepth" placeholder="e.g. 18.7" required>
+          </div>
+
+          <div class="form-group">
+            <label for="flipperLength">Flipper Length (mm)</label>
+            <input type="text" id="flipperLength" name="flipperLength" placeholder="e.g. 181" required>
+          </div>
+
+          <div class="form-group">
+            <label for="bodyMass">Body Mass (g)</label>
+            <input type="text" id="bodyMass" name="bodyMass" placeholder="e.g. 3750" required>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" id="predictBtn" class="btn btn-primary">
+              <span class="btn-icon">🔍</span> Predict Species
+            </button>
+            <button type="button" id="clearBtn" class="btn btn-secondary">
+              <span class="btn-icon">🔄</span> Clear
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Prediction Result Section -->
+      <section id="resultCard" class="card result-card hidden" aria-live="polite">
+        <p class="result-label">Prediction Result</p>
+        <div class="species-title-container">
+          <span class="result-emoji" id="resultEmoji">🐧</span>
+          <h3 class="species-name" id="resultSpeciesName">Gentoo Penguin</h3>
+        </div>
+        <p class="result-summary" id="resultSummary">
+          Based on the provided measurements, this penguin is most likely a Gentoo Penguin.
+        </p>
+        <div class="result-divider"></div>
+        <p class="result-explanation" id="resultExplanation">
+          The body mass is less than 4500g and the bill depth is less than 18mm, which matches the characteristics used for this simple classification.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <h2 class="section-heading">About Penguin Species</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-badge adelie">Adelie</div>
+          <h3>Adelie Penguin</h3>
+          <p>Medium-sized penguin found mostly in Antarctica. Known for its white eye ring and black head.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-badge chinstrap">Chinstrap</div>
+          <h3>Chinstrap Penguin</h3>
+          <p>Easily identified by the thin black band under its chin. Found in Antarctica and sub-Antarctic regions.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-badge gentoo">Gentoo</div>
+          <h3>Gentoo Penguin</h3>
+          <p>One of the fastest swimming penguins. Recognized by its orange beak and white markings above the eyes.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <p>🐧 Penguin Species Classification | Student Project</p>
+  </footer>
+
+</body>
+</html>
